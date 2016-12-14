@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 typedef uint64_t int64;
+#define warpSize 32
 
 /* =====================================================================================*/
 /** Given an integer representing a 32-entry array of bits, return the nth bit of the
@@ -37,14 +38,14 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
   int64 address = (int64) addressP;
   //  printf("Hello from Thread: %d\n", threadIdx.x);
 
-  // Array to hold the addresses of all the threads. We make it one bigger to hold
-  // (max + typeSize - 1). This is to account for the size of our data when checking
-  // for uncoalesced accesses.
-  int64 addrArray[33];
+  // Array to hold the addresses of all the threads. Twice as big as the warp
+  // since we want the starting (min adress) and ending address (max adress) for every
+  // read, that is, all the bytes a single thread is accessing.
+  int64 addrArray[2 * warpSize];
 
   // Thread to gather values across threads.
   int reduceThread = -1;
-  for(int i = 0; i < 32; i++)
+  for(int i = 0; i < warpSize; i++)
     if(getNthBit(activeThreads, i) == 1){
       reduceThread = i;
       break;
@@ -52,46 +53,40 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
 
   // Shuffle values from all threads to our addrArray. Shuffling is undefined if we ask an
   // unactive thread. So we only query active threads.
-  for(int i = 0; i < 32; i++){
+  for(int i = 0; i < warpSize; i++){
     if(getNthBit(activeThreads, i) == 0)
-      addrArray[i] = address;
+      addrArray[i * 2] = address;
     else{
       // Break our shuffle into higher and lower order bits.
       int hob = (int)(address >> 32);
       int lob = 0xFFFFFFFF & address;
       hob = __shfl(hob, i);
       lob = __shfl(lob, i);
-      addrArray[i] = (((int64) hob) << 32) | (int64) lob;
+      addrArray[i * 2] = (((int64) hob) << 32) | (int64) lob;
     }
   }
-
   // We are computing based on warps, but thread id's go past 32. So we must modulo 
   // around.
-  if(reduceThread == (threadIdx.x % 32)){
+  if(reduceThread == (threadIdx.x % warpSize)){
     // Number of unique cache lines.
     int count = 1;
-    int64 myNone = address >> 7;
 
-    // We must account for the size of the data that we are accessing. We find the
-    // maximum element and add typeSize - 1 to it.
-    int64 max = address;
-    /* By definition, the reduceThread is the first active thread. Start after him. */
-    for(int i = reduceThread + 1; i < 32; i++)
-      if(max < addrArray[i])
-        max = addrArray[i];
-    addrArray[32] = (max + typeSize - 1);
-
-    // Divide all threads by 128
-    for(int i = reduceThread + 1; i < 33; i++){
+    // Divide all threads by 128. Every other thread will represent the max address that
+    // is accessed. We compute (address + typeSize - 1) >> 127 for those.
+    for(int i = 0; i < 2 * warpSize; i += 2){
+      addrArray[i + 1] = (addrArray[i] + typeSize - 1) >> 7;
       addrArray[i] >>= 7;
     }
+
+    int64 myNone = addrArray[reduceThread];
+
     // Count unique elements.
-    for(int i = reduceThread + 1; i < 33; i++)
+    for(int i = reduceThread + 1; i < 2 * warpSize; i++)
       if(addrArray[i] != myNone){       // Skip inactive threads.
         int64 current = addrArray[i];
         count++;
         // Iterate through rest of addrArray "none-ing out" entries that match current.
-        for(int j = i + 1; j < 33; j++)
+        for(int j = i + 1; j < 2 * warpSize; j++)
           if(addrArray[j] == current)
             addrArray[j] = myNone;
       }
