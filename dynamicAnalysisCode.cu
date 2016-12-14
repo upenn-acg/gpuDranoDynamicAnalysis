@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 typedef uint64_t int64;
-#define warpSize 32
+#define warpSizeD 32
 
 /* =====================================================================================*/
 /** Given an integer representing a 32-entry array of bits, return the nth bit of the
@@ -41,11 +41,11 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
   // Array to hold the addresses of all the threads. Twice as big as the warp
   // since we want the starting (min adress) and ending address (max adress) for every
   // read, that is, all the bytes a single thread is accessing.
-  int64 addrArray[2 * warpSize];
+  int64 addrArray[2 * warpSizeD];
 
   // Thread to gather values across threads.
   int reduceThread = -1;
-  for(int i = 0; i < warpSize; i++)
+  for(int i = 0; i < warpSizeD; i++)
     if(getNthBit(activeThreads, i) == 1){
       reduceThread = i;
       break;
@@ -53,7 +53,7 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
 
   // Shuffle values from all threads to our addrArray. Shuffling is undefined if we ask an
   // unactive thread. So we only query active threads.
-  for(int i = 0; i < warpSize; i++){
+  for(int i = 0; i < warpSizeD; i++){
     if(getNthBit(activeThreads, i) == 0)
       addrArray[i * 2] = address;
     else{
@@ -67,13 +67,13 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
   }
   // We are computing based on warps, but thread id's go past 32. So we must modulo 
   // around.
-  if(reduceThread == (threadIdx.x % warpSize)){
+  if(reduceThread == (threadIdx.x % warpSizeD)){
     // Number of unique cache lines.
     int count = 1;
 
     // Divide all threads by 128. Every other thread will represent the max address that
     // is accessed. We compute (address + typeSize - 1) >> 127 for those.
-    for(int i = 0; i < 2 * warpSize; i += 2){
+    for(int i = 0; i < 2 * warpSizeD; i += 2){
       addrArray[i + 1] = (addrArray[i] + typeSize - 1) >> 7;
       addrArray[i] >>= 7;
     }
@@ -81,12 +81,12 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
     int64 myNone = addrArray[reduceThread];
 
     // Count unique elements.
-    for(int i = reduceThread + 1; i < 2 * warpSize; i++)
+    for(int i = reduceThread + 1; i < 2 * warpSizeD; i++)
       if(addrArray[i] != myNone){       // Skip inactive threads.
         int64 current = addrArray[i];
         count++;
         // Iterate through rest of addrArray "none-ing out" entries that match current.
-        for(int j = i + 1; j < 2 * warpSize; j++)
+        for(int j = i + 1; j < 2 * warpSizeD; j++)
           if(addrArray[j] == current)
             addrArray[j] = myNone;
       }
