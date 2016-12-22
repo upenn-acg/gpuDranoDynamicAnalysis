@@ -15,7 +15,8 @@ fi
 # Get name of file with no extension.
 cudaFile=$1
 passFile=$2
-llFile=${cudaFile%.*}-device-cuda-nvptx64-nvidia-cuda-sm_30.ll
+bName=$(basename "$cudaFile")
+llFile=${bName%.*}-device-cuda-nvptx64-nvidia-cuda-sm_30.ll
 
 # Generate ll files from source, include instrumentation functions. This is needed as
 # llvm does not support separate compilation.
@@ -30,5 +31,5 @@ opt -load DynamicAnalysisPass/build/DynamicAnalysis/libDynamicAnalysisPass.so \
     -dynamicAnalysis $llFile -S > __passResults.ll &&
 
 # Run our compile script to generate excutable.
-./compile.sh __passResults.ll $cudaFile
-rm __passResults.ll $llFile
+./compile.sh __passResults.ll $cudaFile &&
+rm $llFile

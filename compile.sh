@@ -6,6 +6,8 @@ if [ "$1" == "" ] || [ "$2" == "" ]; then
     exit;
 fi
 
+
+myFile=$2
 # Get name of file with no extension.
 fileName=$(basename "$2")
 extension="${fileName##*.}"
@@ -39,7 +41,7 @@ fatbinary --cuda -64 --create $deviceFileName.fatbin --image=profile=sm_30,file=
 
 #6 Combine fatbinary from #3 and run clang on the host file to generate an object file.
 echo "Generating object file from fatbin and host code files."
-clang -cc1 -triple x86_64-unknown-linux-gnu -aux-triple nvptx64-nvidia-cuda -emit-obj -disable-free -main-file-name $fileName.cu -mrelocation-model static -mthread-model posix -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -momit-leaf-frame-pointer -dwarf-column-info -debugger-tuning=gdb -resource-dir /home/ec2-user/build/bin/../lib/clang/4.0.0 -internal-isystem /usr/local/cuda/include -include __clang_cuda_runtime_wrapper.h -I /usr/include/c++/4.8.3 -I /usr/include/c++/4.8.3/x86_64-amazon-linux -internal-isystem /usr/local/include -internal-isystem /home/ec2-user/build/bin/../lib/clang/4.0.0/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /usr/local/include -internal-isystem /home/ec2-user/build/bin/../lib/clang/4.0.0/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -fdeprecated-macro -fdebug-compilation-dir /home/ec2-user/SampleCudaFiles/ExecutableFromIrExample -ferror-limit 19 -fmessage-length 172 -pthread -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o $fileName.o -x cuda $fileName.cu -fcuda-include-gpubinary $deviceFileName.fatbin
+clang -cc1 -triple x86_64-unknown-linux-gnu -aux-triple nvptx64-nvidia-cuda -emit-obj -disable-free -main-file-name $myFile -mrelocation-model static -mthread-model posix -fmath-errno -masm-verbose -mconstructor-aliases -munwind-tables -target-cpu x86-64 -momit-leaf-frame-pointer -dwarf-column-info -debugger-tuning=gdb -resource-dir /home/ec2-user/build/bin/../lib/clang/4.0.0 -internal-isystem /usr/local/cuda/include -include __clang_cuda_runtime_wrapper.h -I /usr/include/c++/4.8.3 -I /usr/include/c++/4.8.3/x86_64-amazon-linux -internal-isystem /usr/local/include -internal-isystem /home/ec2-user/build/bin/../lib/clang/4.0.0/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /usr/local/include -internal-isystem /home/ec2-user/build/bin/../lib/clang/4.0.0/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -O3 -fdeprecated-macro -fdebug-compilation-dir /home/ec2-user/SampleCudaFiles/ExecutableFromIrExample -ferror-limit 19 -fmessage-length 172 -pthread -fobjc-runtime=gcc -fcxx-exceptions -fexceptions -fdiagnostics-show-option -vectorize-loops -vectorize-slp -o $fileName.o -x cuda $myFile -fcuda-include-gpubinary $deviceFileName.fatbin
 
 #7 Link required libraries to object file from #4 to generate exectuable.
 echo "Linking device object file to runtime libraries..."
