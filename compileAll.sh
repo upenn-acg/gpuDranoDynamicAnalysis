@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Given a cuda file and a dynamic analysis code with the expected API
+# (See "dynamicAnalysisCode.cu", it will run our LLVM pass to create an
+# executable.
+
+
 # This script expects a cuda file to instrument as it's first argument.
 # and the dynamicAnalysisCode.cu script as it's second.
 if [ "$1" == "" ] || [ "$2" == "" ]; then
@@ -22,7 +27,8 @@ clang --cuda-gpu-arch=sm_30 $cudaFile -include $passFile \
 echo "Running dynamic analysis pass on generated files..." &&
 # Run our dynamicAnalysisPass using opt.
 opt -load DynamicAnalysisPass/build/DynamicAnalysis/libDynamicAnalysisPass.so \
-    -dynamicAnalysis $llFile -S > passResults.ll &&
+    -dynamicAnalysis $llFile -S > __passResults.ll &&
 
 # Run our compile script to generate excutable.
-./compile.sh passResults.ll $cudaFile
+./compile.sh __passResults.ll $cudaFile
+rm __passResults.ll $llFile

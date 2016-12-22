@@ -37,9 +37,9 @@ char* printStrWarp = "[Tests %d] Warps printing expected: %d\n\n";
 
 int main(){
   // Uncomment to try out!
-  //  charTests();
-  //intTests();
-  //doubleTests();
+  charTests();
+  intTests();
+  doubleTests();
   structTests();
   return 0;
 }
