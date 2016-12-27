@@ -103,15 +103,16 @@ namespace{
       DataLayout* dl = new DataLayout(module);
       int typeSize = (int) dl->getTypeStoreSize(baseType); 
       ConstantInt *typeSizeB = builder.getInt32(typeSize);
-      errs() << *baseType << ' ' << typeSize << '\n';
+      //errs() << *baseType << ' ' << typeSize << '\n';
 
       Value* moduleVal = builder.CreateGlobalStringPtr(moduleName);
       Value* functionVal = builder.CreateGlobalStringPtr(functionName);
       Value* storeVal = builder.CreateGlobalStringPtr("store");
       Value* args[] = {castedVal, moduleVal, functionVal, storeVal, line, column,
                        myStaticId, typeSizeB};
-      errs() << "Generated: "; (builder.CreateCall(myFun, args))->print(errs());
-      errs() << '\n';
+      builder.CreateCall(myFun, args);
+      //errs() << "Generated: "; (builder.CreateCall(myFun, args))->print(errs());
+      //errs() << '\n';
 
       return;
     }
@@ -163,7 +164,7 @@ namespace{
       DataLayout* dl = new DataLayout(module);
       int typeSize = (int) dl->getTypeStoreSize(baseType); 
       ConstantInt *typeSizeB = builder.getInt32(typeSize);
-      errs() << *baseType << ' ' << typeSize << '\n';
+      //errs() << *baseType << ' ' << typeSize << '\n';
 
 
       Value* moduleVal = builder.CreateGlobalStringPtr(moduleName);
@@ -171,8 +172,9 @@ namespace{
       Value* storeVal = builder.CreateGlobalStringPtr("load");
       Value* args[] = {castedVal, moduleVal, functionVal, storeVal, line, column,
                        myStaticId, typeSizeB};
-      errs() << "Generated: "; (builder.CreateCall(myFun, args))->print(errs());
-      errs() << '\n';
+      builder.CreateCall(myFun, args);
+      //errs() << "Generated: "; (builder.CreateCall(myFun, args))->print(errs());
+      //errs() << '\n';
 
       return;
     }

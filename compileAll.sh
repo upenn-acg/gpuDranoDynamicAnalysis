@@ -21,7 +21,7 @@ llFile=${bName%.*}-device-cuda-nvptx64-nvidia-cuda-sm_30.ll
 # Generate ll files from source, include instrumentation functions. This is needed as
 # llvm does not support separate compilation.
 echo "Generating llvm IR files..." &&
-clang --cuda-gpu-arch=sm_30 $cudaFile -include $passFile \
+clang++ --cuda-gpu-arch=sm_30 $cudaFile -include $passFile \
     -g -O3 -S -emit-llvm \
     -I /usr/include/c++/4.8.3 -I /usr/include/c++/4.8.3/x86_64-amazon-linux &&
 

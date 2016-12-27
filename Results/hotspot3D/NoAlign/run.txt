@@ -1,0 +1,1 @@
+./3D 512 8 100 ~/rodinia_3.1/data/hotspot3D/power_512x8 ~/rodinia_3.1/data/hotspot3D/temp_512x8 output.out | grep "DA__" | cat ~/DynamicAnalyis/header.txt /dev/stdin | python3.5 ~/DynamicAnalyis/computeStatistics.py /dev/stdin hotspot.results

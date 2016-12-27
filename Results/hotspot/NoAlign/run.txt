@@ -1,0 +1,1 @@
+./hotspotNoAlign 512 2 2 ~/rodinia_3.1/data/hotspot/temp_512 ~/rodinia_3.1/data/hotspot/power_512 output.out | grep "DA__" | cat ~/DynamicAnalyis/header.txt /dev/stdin | python3.5 ~/DynamicAnalyis/computeStatistics.py /dev/stdin hotspot.results

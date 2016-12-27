@@ -1,0 +1,5 @@
+./gaussian -f ~/rodinia_3.1/data/gaussian/matrix1024.txt | grep "DA__" | cat ../../header.txt /dev/stdin | python3.5 ../../computeStatistics.py /dev/stdin gaussian1024.results
+
+./gaussian -f ~/rodinia_3.1/data/gaussian/matrix1.txt | grep "DA__" | cat ../../header.txt /dev/stdin | python3.5 ../../computeStatistics.py /dev/stdin gaussian208.results
+
+./gaussian -f ~/rodinia_3.1/data/gaussian/matrix | grep "DA__" | cat ../../header.txt /dev/stdin | python3.5 ../../computeStatistics.py /dev/stdin gaussian16.results
