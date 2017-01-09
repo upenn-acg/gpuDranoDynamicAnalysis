@@ -1,0 +1,1 @@
+./backprop 65536 | grep "DA__" | cat ~/DynamicAnalyis/header.txt /dev/stdin | python3.5 ~/DynamicAnalyis/computeStatistics.py /dev/stdin backprop.results

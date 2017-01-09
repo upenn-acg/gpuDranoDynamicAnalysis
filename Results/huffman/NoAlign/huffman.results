@@ -1,0 +1,5 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+66	120	22	main_test_cu-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	vlc_encode_kernel_sm64huff	2.000	320	160	2	2
+84	37	8	main_test_cu-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	pack2	14.691	29396	2001	1	30
+85	39	20	main_test_cu-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	pack2	14.472	29392	2031	1	17
+86	48	8	main_test_cu-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	pack2	15.375	984	64	14	16

@@ -1,0 +1,7 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+24	132	17	needle-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	needle_cuda_shared_2	1.435	1293	901	1	2
+26	132	17	needle-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	needle_cuda_shared_2	1.498	1371	915	1	2
+30	140	21	needle-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	needle_cuda_shared_2	16.000	1920	120	16	16
+32	144	21	needle-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	needle_cuda_shared_2	1.467	176	120	1	2
+45	186	34	needle-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	needle_cuda_shared_2	1.408	1352	960	1	2
+47	186	34	needle-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	needle_cuda_shared_2	1.475	1416	960	1	2

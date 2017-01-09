@@ -23,7 +23,8 @@ llFile=${bName%.*}-device-cuda-nvptx64-nvidia-cuda-sm_30.ll
 echo "Generating llvm IR files..." &&
 clang++ --cuda-gpu-arch=sm_30 $cudaFile -include $passFile \
     -g -O3 -S -emit-llvm \
-    -I /usr/include/c++/4.8.3 -I /usr/include/c++/4.8.3/x86_64-amazon-linux &&
+    -I /usr/include/c++/4.8.3 -I /usr/include/c++/4.8.3/x86_64-amazon-linux \
+    -I /usr/local/cuda-7.5/samples/common/inc/ &&
 
 echo "Running dynamic analysis pass on generated files..." &&
 # Run our dynamicAnalysisPass using opt.

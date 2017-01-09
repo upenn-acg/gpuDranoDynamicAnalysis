@@ -1,0 +1,3 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+34	56	43	nn_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	euclid	1.999	2673	1337	1	2
+35	56	81	nn_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	euclid	1.999	2673	1337	1	2

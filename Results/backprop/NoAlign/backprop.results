@@ -1,0 +1,8 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+36	37	28	backprop_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	bpnn_layerforward_CUDA	2.000	1888	944	2	2
+42	58	29	backprop_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	bpnn_layerforward_CUDA	2.000	2144	1072	2	2
+50	101	68	backprop_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	bpnn_adjust_weights_cuda	2.000	676	338	2	2
+51	101	13	backprop_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	bpnn_adjust_weights_cuda	2.000	824	412	2	2
+52	101	13	backprop_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	bpnn_adjust_weights_cuda	2.000	944	472	2	2
+55	102	70	backprop_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	bpnn_adjust_weights_cuda	2.000	1216	608	2	2
+56	102	16	backprop_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	bpnn_adjust_weights_cuda	2.000	1300	650	2	2

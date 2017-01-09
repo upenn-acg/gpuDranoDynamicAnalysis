@@ -1,0 +1,10 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+44	196	22	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	700	350	2	2
+50	208	19	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	1216	608	2	2
+52	211	19	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	64	32	2	2
+54	216	32	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	1392	696	2	2
+59	248	17	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	1888	944	2	2
+60	248	35	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	2016	1008	2	2
+61	248	53	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	2200	1100	2	2
+62	248	71	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	2364	1182	2	2
+66	255	18	srad-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	srad_cuda_2	2.000	2560	1280	2	2
