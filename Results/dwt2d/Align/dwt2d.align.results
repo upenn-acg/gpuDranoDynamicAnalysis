@@ -1,0 +1,25 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+813	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+815	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+817	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+819	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+821	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+823	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+825	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+827	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<true, true>	2.000	16	8	2	2
+938	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	40	20	2	2
+940	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	40	20	2	2
+942	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	40	20	2	2
+944	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	40	20	2	2
+946	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	40	20	2	2
+948	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	40	20	2	2
+950	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	40	20	2	2
+952	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, true>	2.000	42	21	2	2
+1062	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	120	60	2	2
+1064	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	120	60	2	2
+1066	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	120	60	2	2
+1068	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	120	60	2	2
+1070	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	120	60	2	2
+1072	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	120	60	2	2
+1074	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	120	60	2	2
+1076	212	14	fdwt53-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	transform<false, false>	2.000	128	64	2	2

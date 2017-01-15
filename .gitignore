@@ -1,3 +1,4 @@
 *~
 DynamicAnalysisPass/build/
 WorkingResults/
+*.o
