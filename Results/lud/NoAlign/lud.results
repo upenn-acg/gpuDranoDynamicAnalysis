@@ -1,0 +1,5 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+138	179	40	lud_kernel-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	lud_internal	2.000	1022	511	2	2
+140	180	40	lud_kernel-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	lud_internal	2.000	1760	880	2	2
+146	187	71	lud_kernel-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	lud_internal	2.000	1760	880	2	2
+147	187	71	lud_kernel-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	lud_internal	2.000	1760	880	2	2

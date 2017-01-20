@@ -36,7 +36,6 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
   // problems when counting unique values. Notice this will only matter for the
   // reduce thread.
   int64 address = (int64) addressP;
-  //  printf("Hello from Thread: %d\n", threadIdx.x);
 
   // Array to hold the addresses of all the threads. Twice as big as the warp
   // since we want the starting (min adress) and ending address (max adress) for every

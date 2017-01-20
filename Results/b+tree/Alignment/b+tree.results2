@@ -1,0 +1,8 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+1	29	7	kernel_gpu_cuda_wrapper_2-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	findRangeK	2.000	688	344	2	2
+3	29	63	kernel_gpu_cuda_wrapper_2-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	findRangeK	1.633	410	251	1	2
+7	37	7	kernel_gpu_cuda_wrapper_2-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	findRangeK	1.727	651	377	1	2
+9	37	61	kernel_gpu_cuda_wrapper_2-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	findRangeK	1.065	957	899	1	2
+10	41	7	kernel_gpu_cuda_wrapper_2-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	findRangeK	1.902	1670	878	1	2
+17	29	7	kernel_gpu_cuda_wrapper_2-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	findRangeK	1.982	884	446	1	2
+22	62	5	kernel_gpu_cuda_wrapper_2-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	findRangeK	1.949	608	312	1	2

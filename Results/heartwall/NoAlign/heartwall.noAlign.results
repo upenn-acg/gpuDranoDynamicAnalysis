@@ -1,6 +1,0 @@
-staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
-57	129	37	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	1.767	3184	1802	1	3
-452	1199	14	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	1.036	8676	8371	1	2
-460	1230	33	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	26.200	524	20	3	32
-461	1230	33	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	27.572	50015	1814	3	32
-462	1230	33	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	27.568	50146	1819	3	32

@@ -1,4 +1,4 @@
-frame progress: 0 DA__	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	23	load	129	37	2
+DA__	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	23	load	129	37	2
 DA__	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	24	store	129	35	2
 DA__	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	23	load	129	37	2
 DA__	main-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	23	load	129	37	3

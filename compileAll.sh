@@ -25,7 +25,9 @@ clang++ --cuda-gpu-arch=sm_30 $cudaFile -include $passFile \
     -g -O3 -S -emit-llvm \
     -I /usr/include/c++/4.8.3 -I /usr/include/c++/4.8.3/x86_64-amazon-linux \
     -I ~/DynamicAnalyis/Results/heartwall/AVI/ \
-    -I /usr/local/cuda-7.5/samples/common/inc/ &&
+    -I /usr/local/cuda-7.5/samples/common/inc/ \
+    -I ~/DynamicAnalyis/Results/lud/common/ &&
+
 
 echo "Running dynamic analysis pass on generated files..." &&
 # Run our dynamicAnalysisPass using opt.
