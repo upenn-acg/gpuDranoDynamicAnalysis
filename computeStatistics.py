@@ -30,8 +30,9 @@ def main():
             # A staticId was still generated though. So we skip it!
             if dataByStaticId.empty:
                 continue
-
+            # print("length of {0} is {1}".format(i, len(dataByStaticId)))
             memAccData = dataByStaticId["memoryAccesses"]
+            
             memAcc = sum(memAccData)
             size = len(memAccData)
             line = dataByStaticId["line"].iloc[0]

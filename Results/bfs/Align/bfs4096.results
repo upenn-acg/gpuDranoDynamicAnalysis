@@ -1,9 +1,9 @@
 staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
 2	28	64	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.337	230	172	1	2
 3	28	32	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.337	230	172	1	2
-4	30	13	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	2.296	6502	2832	1	8
-5	31	8	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	3.008	8761	2913	1	16
-7	33	15	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.525	2530	1659	1	8
-8	34	30	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.517	2590	1707	1	8
-9	28	64	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.224	2112	1725	1	2
-10	28	97	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.226	2162	1764	1	2
+4	30	13	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	2.286	6458	2825	1	8
+5	31	8	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	2.977	8614	2894	1	16
+7	33	15	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.530	2555	1670	1	8
+8	34	30	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.516	2596	1712	1	8
+9	28	64	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.224	2113	1726	1	2
+10	28	97	bfs-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Kernel	1.225	2169	1771	1	2

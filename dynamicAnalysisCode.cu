@@ -13,6 +13,15 @@ __device__ int getNthBit(unsigned int bitArray, int nth){
 }
 /* =====================================================================================*/
 /**
+ * Return the lane id of the thread.
+ */
+static __device__ __inline__ uint32_t getLaneId(){
+  uint32_t laneId;
+  asm volatile("mov.u32 %0, %%laneid;" : "=r"(laneId));
+  return (int)laneId;
+}
+/* =====================================================================================*/
+/**
  * Function to count the number of unique cache lines needed for each load or store.
  * Prints information about location of load/store and number of cache lines needed.
  * @param: address of load/store we want to compute for.
@@ -54,33 +63,31 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
   // unactive thread. So we only query active threads.
   for(int i = 0; i < warpSizeD; i++){
     if(getNthBit(activeThreads, i) == 0)
-      addrArray[i * 2] = address;
+      addrArray[2 * i] = address;
     else{
       // Break our shuffle into higher and lower order bits.
       int hob = (int)(address >> 32);
       int lob = 0xFFFFFFFF & address;
       hob = __shfl(hob, i);
       lob = __shfl(lob, i);
-      addrArray[i * 2] = (((int64) hob) << 32) | (int64) lob;
+      addrArray[2 * i] = (((int64) hob) << 32) | (int64) lob;
     }
   }
-  // We are computing based on warps, but thread id's go past 32. So we must modulo 
-  // around.
-  if(reduceThread == (threadIdx.x % warpSizeD)){
+
+  if(reduceThread == getLaneId()){
     // Number of unique cache lines.
     int count = 1;
-
     // Divide all threads by 128. Every other thread will represent the max address that
-    // is accessed. We compute (address + typeSize - 1) >> 127 for those.
-    for(int i = 0; i < 2 * warpSizeD; i += 2){
-      addrArray[i + 1] = (addrArray[i] + typeSize - 1) >> 7;
-      addrArray[i] >>= 7;
+    // is accessed. We compute (address + typeSize - 1) >> 7 for those.
+    for(int i = 0; i < warpSizeD; i++){
+      addrArray[2 * i + 1] = (addrArray[2 * i] + typeSize - 1) >> 7;
+      addrArray[2 * i] >>= 7;
     }
 
-    int64 myNone = addrArray[reduceThread];
-
+    // We access this value instead of address as it has been divided by 128.
+    int64 myNone = addrArray[0];
     // Count unique elements.
-    for(int i = reduceThread + 1; i < 2 * warpSizeD; i++)
+    for(int i = 0; i < 2 * warpSizeD; i++)
       if(addrArray[i] != myNone){       // Skip inactive threads.
         int64 current = addrArray[i];
         count++;

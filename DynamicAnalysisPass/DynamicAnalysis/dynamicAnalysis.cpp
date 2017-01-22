@@ -42,6 +42,10 @@ namespace{
 
       if(countCachesFun == functionName)
         mangledName = StringRef(fun.getName());
+      /* Avoid inserting code recursively in function by skipping. */
+      if(functionName.find("countCacheLines") != StringRef::npos)
+        return false;
+      
       
       /* For every function, for every basic block (bb), for every instruction... */
       for(inst_iterator inst = inst_begin(fun), instEnd = inst_end(fun);
