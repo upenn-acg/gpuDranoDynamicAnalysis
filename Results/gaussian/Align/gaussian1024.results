@@ -1,6 +1,7 @@
 staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
-0	295	61	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan1	31.696	18130	572	11	32
-2	295	59	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan1	31.696	18130	572	11	32
-3	312	38	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan2	3.990	57868	14503	1	4
-5	312	35	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan2	3.991	74492	18663	1	4
-6	312	35	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan2	3.992	83644	20951	1	4
+0	295	61	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan1	31.527	68162	2162	1	32
+2	295	59	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan1	31.527	68162	2162	1	32
+3	312	38	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan2	3.993	269115	67396	1	4
+4	312	66	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan2	1.002	69241	69134	1	2
+5	312	35	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan2	3.998	285322	71360	1	8
+6	312	35	gaussian-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	Fan2	3.998	294639	73690	1	8

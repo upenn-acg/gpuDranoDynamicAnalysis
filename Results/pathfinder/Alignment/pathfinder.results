@@ -1,4 +1,0 @@
-staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
-0	122	16	pathfinder-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	dynproc_kernel	1.895	163	86	1	2
-5	137	31	pathfinder-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	dynproc_kernel	1.837	6737	3668	1	2
-10	152	21	pathfinder-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	dynproc_kernel	1.789	612	342	1	2

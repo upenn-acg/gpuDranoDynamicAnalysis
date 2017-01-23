@@ -1,0 +1,3 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+9	42	51	3D-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	hotspotOpt1	1.919	1040	542	1	2
+10	42	37	3D-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	hotspotOpt1	1.957	1104	564	1	2

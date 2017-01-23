@@ -1,9 +1,9 @@
 staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
-12	75	61	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	8.000	25480	3185	8	8
-13	81	32	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	8.000	26296	3287	8	8
-15	81	13	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	1.943	7418	3817	1	6
-16	81	13	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	1.945	7649	3933	1	6
-17	86	32	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	7.868	26813	3408	4	8
-18	86	10	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	1.823	6403	3512	1	12
-19	86	41	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	2.966	10730	3618	2	13
-20	86	41	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	2.986	11108	3720	2	13
+12	75	61	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	8.000	30480	3810	8	8
+13	81	32	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	8.000	31792	3974	8	8
+15	81	13	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	1.947	8993	4619	1	6
+16	81	13	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	1.947	9186	4717	1	6
+17	86	32	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	7.863	32514	4135	4	8
+18	86	10	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	1.812	7723	4261	1	12
+19	86	41	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	2.939	12936	4401	2	13
+20	86	41	streamcluster_cuda-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel_compute_cost	2.935	13264	4520	2	13

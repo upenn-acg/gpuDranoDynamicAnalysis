@@ -1,4 +1,4 @@
 staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
-34	164	28	hotspot-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	calculate_temp	2.000	2698	1349	2	2
-36	165	29	hotspot-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	calculate_temp	2.000	2968	1484	2	2
-48	213	20	hotspot-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	calculate_temp	2.000	2526	1263	2	2
+0	164	28	hotspot-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	calculate_temp	2.000	2782	1391	2	2
+2	165	29	hotspot-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	calculate_temp	2.000	3006	1503	2	2
+14	213	20	hotspot-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	calculate_temp	2.000	2404	1202	2	2
