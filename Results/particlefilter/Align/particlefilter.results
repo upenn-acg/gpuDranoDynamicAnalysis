@@ -1,5 +1,0 @@
-staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
-41	259	17	ex_particle_CUDA_float_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	find_index_kernel	1.118	19	17	1	2
-42	259	15	ex_particle_CUDA_float_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	find_index_kernel	1.941	33	17	1	2
-43	260	17	ex_particle_CUDA_float_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	find_index_kernel	1.118	19	17	1	2
-44	260	15	ex_particle_CUDA_float_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	find_index_kernel	1.941	33	17	1	2

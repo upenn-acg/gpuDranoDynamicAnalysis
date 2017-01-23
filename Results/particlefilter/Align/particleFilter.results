@@ -1,0 +1,5 @@
+staticId	line	column	fileName	functionName	avgCacheLinesUsed	totalCacheLinesUsed	timesInsnCalled	min	max
+9	133	11	ex_particle_CUDA_naive_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	1.094	210	192	1	2
+10	133	9	ex_particle_CUDA_naive_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	1.954	381	195	1	2
+11	134	11	ex_particle_CUDA_naive_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	1.092	213	195	1	2
+12	134	9	ex_particle_CUDA_naive_seq-device-cuda-nvptx64-nvidia-cuda-sm_30.ll	kernel	1.954	381	195	1	2
