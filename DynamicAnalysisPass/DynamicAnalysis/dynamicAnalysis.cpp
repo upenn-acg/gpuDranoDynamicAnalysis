@@ -13,8 +13,11 @@
 // Basename function.
 #include <libgen.h>
 
+#include <vector>
+
 
 using namespace llvm;
+using namespace std;
 
 namespace{
   struct DynamicAnalysis : public FunctionPass{
@@ -86,14 +89,8 @@ namespace{
       Value* val = si->getPointerOperand();
       Value* castedVal = builder.CreateBitCast(val, Type::getInt8PtrTy(ctx));
 
-      // Insert function call.
-      Constant* myFun = module->
-        getOrInsertFunction(mangledName, Type::getVoidTy(ctx), //return type
-                            Type::getInt8PtrTy(ctx), Type::getInt8PtrTy(ctx), //Args.
-                            Type::getInt8PtrTy(ctx), Type::getInt8PtrTy(ctx), 
-                            Type::getInt32Ty(ctx), Type::getInt32Ty(ctx), 
-                            Type::getInt32Ty(ctx), Type::getInt32Ty(ctx),
-                            NULL);
+      // Insert here!
+      Constant*  myFun = insertInstrumentingFunc(mangledName, ctx, module);
 
       ConstantInt *line = builder.getInt32(lineNum);
       ConstantInt *column = builder.getInt32(columnNum);
@@ -147,14 +144,7 @@ namespace{
       Value* val = si->getPointerOperand();
       Value* castedVal = builder.CreateBitCast(val, Type::getInt8PtrTy(ctx));
 
-      // Insert function call.
-      Constant* myFun = module->
-        getOrInsertFunction(mangledName, Type::getVoidTy(ctx), //return type
-                            Type::getInt8PtrTy(ctx), Type::getInt8PtrTy(ctx), //Args.
-                            Type::getInt8PtrTy(ctx), Type::getInt8PtrTy(ctx), 
-                            Type::getInt32Ty(ctx), Type::getInt32Ty(ctx),
-                            Type::getInt32Ty(ctx), Type::getInt32Ty(ctx),
-                            NULL);
+      Constant* myFun = insertInstrumentingFunc(mangledName, ctx, module);
 
       ConstantInt *line = builder.getInt32(lineNum);
       ConstantInt *column = builder.getInt32(columnNum);
@@ -181,6 +171,21 @@ namespace{
       //errs() << '\n';
 
       return;
+    }
+
+    /**
+     * Does actual function insertion at *this* location.
+     */
+    Constant* insertInstrumentingFunc(StringRef mangledName, LLVMContext& ctx,
+                                      Module* module){
+      Type* returnType = Type::getVoidTy(ctx);
+      vector<Type*> fArgs { Type::getInt8PtrTy(ctx), Type::getInt8PtrTy(ctx),
+          Type::getInt8PtrTy(ctx), Type::getInt8PtrTy(ctx),
+          Type::getInt32Ty(ctx), Type::getInt32Ty(ctx),
+          Type::getInt32Ty(ctx), Type::getInt32Ty(ctx)
+          };
+      FunctionType* instrumenter = FunctionType::get(returnType, fArgs, false);
+      return module->getOrInsertFunction(mangledName, instrumenter);
     }
 
 
