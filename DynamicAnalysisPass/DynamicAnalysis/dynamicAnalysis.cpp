@@ -41,23 +41,33 @@ namespace{
                << " in "  << moduleName << ". Skipping." << '\n';
         return false;
       }
+
+      StringRef fileName = funDebug->getFilename();
       StringRef functionName = funDebug->getName();
 
       if(countCachesFun == functionName)
         mangledName = StringRef(fun.getName());
-      /* Avoid inserting code recursively in function by skipping. */
-      if(functionName.find("countCacheLines") != StringRef::npos)
+      /* Avoid inserting code recursively in our own function by skipping the file.
+	 Also, skip intrinsictly defined functions. */
+      if(fileName.find("dynamicAnalysis") != StringRef::npos || functionName.startswith("__")){
+	errs() << "Skipping instrumentation into " << functionName << '\n';
         return false;
-      
+      }else{
+	errs() << "Instrumenting: " << functionName << '\n';
+      }
       
       /* For every function, for every basic block (bb), for every instruction... */
       for(inst_iterator inst = inst_begin(fun), instEnd = inst_end(fun);
           inst != instEnd;
           inst++){
-        if(StoreInst* si = dyn_cast<StoreInst>(&*inst))
+        if(StoreInst* si = dyn_cast<StoreInst>(&*inst)){
+	  // errs() << "Store Address space: " << si->getPointerAddressSpace() << '\n';
           storeInstruction(si, ctx, module, functionName);
-        else if(LoadInst* ls = dyn_cast<LoadInst>(&*inst))
+	}
+        else if(LoadInst* ls = dyn_cast<LoadInst>(&*inst)){
           loadInstruction(ls, ctx, module, functionName);
+	  // errs() << "Load Address space: " << ls->getPointerAddressSpace() << '\n';
+	}
       }
 
       return true;
@@ -82,8 +92,10 @@ namespace{
       // code itself. Skip!
       if(filename.endswith("./dynamicAnalysisCode.cu"))
         return;
+      // This is needed, otherwise we end with unnamed instructions being included into the code :/
       if(mangledName == "")       // Safety check...
         return;
+
 
       // Casting to i8 pointer.
       Value* val = si->getPointerOperand();
@@ -188,7 +200,9 @@ namespace{
       return module->getOrInsertFunction(mangledName, instrumenter);
     }
 
-
+    ~DynamicAnalysis(){
+      errs() << "End of dynamic analysis instrumentation pass.\n";
+    }
 
   };
 }

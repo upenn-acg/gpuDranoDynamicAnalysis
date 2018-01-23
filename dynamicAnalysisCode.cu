@@ -99,7 +99,7 @@ __device__ void countCacheLines(void* addressP, char* moduleName, char* function
 
     // 'DA__' is needed so we have a unique identifier to grep from the program's
     // output.
-    char* str = "DA__\t%s\t%s\t%d\t%s\t%d\t%d\t%d\n";
+    char* str =  { "DA__\t%s\t%s\t%d\t%s\t%d\t%d\t%d\n" };
     printf(str, moduleName, functionName, dynamicId, loadOrStore,
            lineNum, columnNum, count);
   }

@@ -2,11 +2,11 @@ include ../common/make.config
 
 # C compiler
 CC = gcc
-CC_FLAGS = -g  -O2
+CC_FLAGS= -g -O2 -I /usr/lib/gcc/x86_64-amazon-linux/4.8.5/include/
 
 # CUDA compiler
-NVCC = $(CUDA_DIR)/bin/nvcc
-NVCC_FLAGS = -I$(CUDA_DIR)/include
+NVCC =clang++
+NVCC_FLAGS = -I$(CUDA_DIR)/include -include ../../dynamicAnalysisCode.cu -g -Xclang -load -Xclang ../../DynamicAnalysisPass/build/DynamicAnalysis/libDynamicAnalysisPass.so --cuda-path=/opt/nvidia/cuda/ -L /usr/lib/gcc/x86_64-amazon-linux/4.8.5/ -L /opt/nvidia/cuda/lib64/ -I /usr/include/c++/4.8.5/ -I /usr/include/c++/4.8.5/x86_64-amazon-linux/ --cuda-gpu-arch=sm_30 -lcudart_static -ldl -lrt -pthread -lcudart
 
 # 'make dbg=1' enables NVCC debugging
 ifeq ($(dbg),1)
