@@ -14,7 +14,7 @@ Right now. The dynamic analysis is only guaranteed to work with LLVM 6.0.
 svn co http://llvm.org/svn/llvm-project/llvm/branches/release_60 llvm
 ```
 
-This will create a `llvm` folder. We will refer to this folder as the LLVM_BUILD_DIR.
+This will create a `llvm` folder. We will refer to this folder as the `LLVM_BUILD_DIR`.
 
 2. Add clang for the installation.
 ```shell
@@ -48,22 +48,22 @@ See `./DynamicAnalysisPass/README.md`
 
 
 ## Usage
-Running the executable with appropriate input will results in the dynamic analysis data printed to standard output (it is not possible to change the output stream as printing from the kernel only supports stdout). A single line is printed per load/store which should be redirected into a file. There may be normal program output so we grep for the unique identifier "DA__". A header must be added to the file, see "header.txt". The program "computeStatistics.py" (requires python 3.5 with numpy and pandas), crunches this information into a friendly format.
+Running the executable with appropriate input will results in the dynamic analysis data printed to standard output (it is not possible to change the output stream as printing from the kernel only supports stdout). A single line is printed per load/store which should be redirected into a file. There may be normal program output so we grep for the unique identifier "DA__". A header must be added to the file, see `header.txt`. The program `computeStatistics.py` (requires python 3.5 with numpy and pandas), crunches this information into a friendly format.
 
 Please verify you can compile a Cuda program using your LLVM clang++ compiler:
 ```
 clang++ $(YOUR_CLANG_FLAGS) <program>.cu
 ```
 
-Once this works you may add the following flags to clang++. The debugging flag (-g) is necessary,
-we use if for getting information about function name, line number, and column number. We use compute
-cability sm_30 for several Cuda functions only avaliable in that version and up (such as shuffle).
+Once this works you may add the following flags to clang++. The debugging flag (-g) is necessary, we use if for getting information about function name, line number, and column number. We use compute cability sm_30 for several Cuda functions only avaliable in that version and up (such as shuffle).
 ```
 -include <path to>/dynamicAnalysisCode.cu -g -Xclang -load -Xclang <path to>/libDynamicAnalysisPass.so --cuda-gpu-arch=sm_30
 ```
 
-You may go into Result/gaussian and attempt to compile gaussian.cu:
+You may go into Result/gaussian and attempt to compile `gaussian.cu`:
+```
 clang++ -include ../../dynamicAnalysisCode.cu -g -Xclang -load -Xclang ../../DynamicAnalysisPass/build/DynamicAnalysis/libDynamicAnalysisPass.so --cuda-gpu-arch=sm_30 $(YOUR_CLANG_FLAGS) gaussian.cu -o gaussian
+```
 
 From this directory, run and get results:
 ```
