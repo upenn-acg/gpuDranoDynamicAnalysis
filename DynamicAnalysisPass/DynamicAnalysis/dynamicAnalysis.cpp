@@ -96,7 +96,6 @@ namespace{
       if(mangledName == "")       // Safety check...
         return;
 
-
       // Casting to i8 pointer.
       Value* val = si->getPointerOperand();
       Value* castedVal = builder.CreateBitCast(val, Type::getInt8PtrTy(ctx));
@@ -157,7 +156,6 @@ namespace{
       Value* castedVal = builder.CreateBitCast(val, Type::getInt8PtrTy(ctx));
 
       Constant* myFun = insertInstrumentingFunc(mangledName, ctx, module);
-
       ConstantInt *line = builder.getInt32(lineNum);
       ConstantInt *column = builder.getInt32(columnNum);
 
