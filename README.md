@@ -104,6 +104,10 @@ staticId        line    column  fileName        functionName    avgCacheLinesUse
 ```
 These are the uncoalesced accesses found this program, for the given input. The column `totalCacheLinesUsed` give you the average "degree" of uncoalesced accesses, this number ranges from (1, 32] where 32 means every thread in the warp is doing a separate memory transaction to access the data.
 
+### More complicated programs
+Our dynamic analysis is robust enough to instrument all Rodinia benchmarks. Notice some programs may take a really long time (orders of maginute) longer to run with the dynamic analysis. This can be slightly mitigated by writing the output to a file or pipe.
+
+If your program uses a `Makefile` compile, you can just add the dynamic analysis flags to your compilation flags. For example for `lud` we add `-include ../../../dynamicAnalysisCode.cu -g -Xclang -load -Xclang ../../../DynamicAnalysisPass/build/DynamicAnalysis/libDynamicAnalysisPass.so` to our compilation flags (absolute paths would probably be better).
 
 ## Benchmarks.
 We use the Rodina (v3.1) benchmark suite to test and profile global uncoalesced accesses in real GPU Programs.
