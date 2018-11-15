@@ -21,6 +21,11 @@ def main():
         print(headerStr, file=fout)
 
         data = pandas.read_csv(inputFile, delimiter='\t')
+
+        # Check if it's empty!
+        if data["staticId"].empty:
+            print("No instrumentation data printed from run. Did you forget to \"-include <path>/dynamicAnalysisCode.cu\"?")
+            return
         staticIds = max(data["staticId"])
         for i in range(staticIds + 1):
             dataByStaticId = data.loc[data["staticId"] == i]
