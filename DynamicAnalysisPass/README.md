@@ -1,20 +1,23 @@
 # Installation of LLVM Opt Dynamic Analysis Pass
 
-Please be sure you have a working version of LLVM 4.0 with all the required libraries and
+Please be sure you have a working version of LLVM 6.0 with all the required libraries and
 installation.
 
 ## Generate Makefile
+LLVM uses cmake to generate the Makefile.
+
 ### Option A:
 To build this pass execute the following commands from this directory (If this fails see
-option B below:
+option B below):
 
 ```shell
 mkdir build
 cd build
+cmake ..
 ```
 
-This will generate a Makefile inside of build. Now you may compile the pass.
-(Assuming your llvm installation is correct and can be found).
+This will generate a Makefile inside of build. Now you may compile the pass (See [Compile](#compile) step below).
+This options assumes your llvm installation is correctly set up and can be found by cmake.
 
 ### Option B:
 
