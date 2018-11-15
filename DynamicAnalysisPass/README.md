@@ -4,7 +4,11 @@ Please be sure you have a working version of LLVM 6.0 with all the required libr
 installation.
 
 ## Generate Makefile
-LLVM uses cmake to generate the Makefile.
+LLVM uses cmake to generate the Makefile. If either option A or B successfully execture, you will have a populated `build/` folder containing a `Makefile`. E.g:
+```bash
+$ ls
+CMakeCache.txt  CMakeFiles/  cmake_install.cmake  compile_commands.json  DynamicAnalysis/  Makefile
+```
 
 ### Option A:
 To build this pass execute the following commands from this directory (If this fails see
@@ -37,7 +41,12 @@ cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_PREFIX_PATH=/home/LLVM_BUILD_DI
  
  If successfuly you should see:
  ```shell
-[100%] Built target DynamicAnalysisPass 
+ Scanning dependencies of target DynamicAnalysisPass
+[ 50%] Building CXX object DynamicAnalysis/CMakeFiles/DynamicAnalysisPass.dir/dynamicAnalysis.cpp.o
+[100%] Linking CXX shared module libDynamicAnalysisPass.so
+[100%] Built target DynamicAnalysisPass
  ```
 
 This generates the shared object `./build/DynamicAnalysis/libDynamicAnalysisPass.so`
+
+Please go back to the main README.md for usage.
