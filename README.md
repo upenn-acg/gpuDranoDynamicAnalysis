@@ -44,7 +44,7 @@ $PATH=LLVM_BUILD_DIRECTORY/bin/:$PATH # This only lasts until the end of the she
 ```
 
 ### Compile the Dynamic Analysis LLVM Pass
-See `./DynamicAnalysisPass/README.md`
+See [./DynamicAnalysisPass/README.md](https://github.com/upenn-acg/gpuDranoDynamicAnalysis/blob/master/DynamicAnalysisPass/README.md)
 
 After this step you will have a shared object which contains the dynamic analysis pass. Mine is located under `DynamicAnalysisPass/build/DynamicAnalysis/libDynamicAnalysisPass.so`
 
